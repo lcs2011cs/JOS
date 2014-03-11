@@ -8,7 +8,7 @@
 extern const struct Stab __STAB_BEGIN__[];	// Beginning of stabs table
 extern const struct Stab __STAB_END__[];	// End of stabs table
 extern const char __STABSTR_BEGIN__[];		// Beginning of string table
-extern const char __STABSTR_END__[];		// End of string table
+extern const char __STABSTR_END__[];		// End of string tabl
 
 
 // stab_binsearch(stabs, region_left, region_right, type, addr)
@@ -179,6 +179,8 @@ debuginfo_eip(uintptr_t addr, struct Eipdebuginfo *info)
 	//	Look at the STABS documentation and <inc/stab.h> to find
 	//	which one.
 	// Your code here.
+	 stab_binsearch(stabs, &lline, &rline, N_SLINE, addr);
+    	 info->eip_line = stabs[lline].n_desc;
 
 
 	// Search backwards from the line number for the relevant filename

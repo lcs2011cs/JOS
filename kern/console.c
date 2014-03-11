@@ -7,6 +7,7 @@
 #include <inc/assert.h>
 
 #include <kern/console.h>
+#include <inc/cl.h>
 
 static void cons_intr(int (*proc)(void));
 static void cons_putc(int c);
@@ -163,8 +164,9 @@ static void
 cga_putc(int c)
 {
 	// if no attribute given, then use black on white
-	if (!(c & ~0xFF))
-		c |= 0x0700;
+	if (!mycolor) mycolor = 0x0700;
+  	if (!(c & ~0xFF))
+   		 c |= mycolor;
 
 	switch (c & 0xff) {
 	case '\b':
