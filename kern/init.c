@@ -8,7 +8,7 @@
 #include <kern/console.h>
 #include <kern/pmap.h>
 #include <kern/kclock.h>
-
+//1
 // Test the stack backtrace function (lab 1 only)
 void
 test_backtrace(int x)
